@@ -12,6 +12,7 @@ namespace TwitchChatVotingProxy.Config
         EVotingMode? VotingMode { get; set; }
         int? OverlayServerPort { get; set; }
         bool RetainInitalVotes { get; set; }
+        string retainInitialVotesThreshold { get; set; }
         string TwitchChannelName { get; set; }
         string TwitchOAuth { get; set; }
         string TwitchUserName { get; set; }
