@@ -97,7 +97,7 @@ namespace TwitchChatVotingProxy
             if (totalVotesFirstCount > retainInitialVotesThreshold) retainInitialVotes == 0;
             else retainInitialVotes = config.RetainInitalVotes;
             var votes = activeVoteOptions.Select(_ => retainInitialVotes ? _.Votes + 1 : _.Votes).ToList();
-            totalVotes = 0;
+            var totalVotes = 0;
             votes.ForEach(_ => totalVotes += _);
             // If we have no votes, choose one at random
             if (totalVotes == 0) return random.Next(0, votes.Count);
