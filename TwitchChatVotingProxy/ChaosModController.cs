@@ -22,7 +22,7 @@ namespace TwitchChatVotingProxy
         private Dictionary<string, int> userVotedFor = new Dictionary<string, int>();
         private Random random = new Random();
         private Boolean retainInitialVotes;
-        private int retainInitialVotesThreshold;
+        private int retainInitialVotesThreshold = 0;
         private int voteCounter = 0;
         private bool voteRunning = false;
         private EVotingMode? votingMode;
