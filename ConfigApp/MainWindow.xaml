@@ -313,6 +313,21 @@
                                 <CheckBox x:Name="twitch_user_chance_system_retain_chance_enable" Width="60" Height="20" Grid.Column="2"
                                           HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
                             </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="twitch_user_chance_system_retain_chance_threshold_label" Content="Threshold after which initial chance is ignored." Grid.Column="0"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <TextBox x:Name="twitch_user_chance_system_retain_chance_threshold" Width="60" Height="20" Grid.Column="2"
+                                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                                     MaxLength="6" PreviewTextInput="OnlyNumbersPreviewTextInput"
+                                     CommandManager.PreviewExecuted="NoCopyPastePreviewExecuted" ContextMenu="{x:Null}"
+                                     Keyboard.PreviewKeyDown="NoSpacePreviewKeyDown" />
+                            </Grid>
                         </Grid>
                     </Grid>
                 </TabItem>
