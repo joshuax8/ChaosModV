@@ -9,7 +9,7 @@
         /// <summary>
         /// request type
         /// </summary>
-        public bool retainInitialVotesThreshold { get; set; }
+        public int retainInitialVotesThreshold { get; set; }
         /// <summary>
         /// request type threshold
         /// </summary>
