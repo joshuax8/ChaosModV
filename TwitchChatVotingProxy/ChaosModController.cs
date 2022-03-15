@@ -22,7 +22,7 @@ namespace TwitchChatVotingProxy
         private Dictionary<string, int> userVotedFor = new Dictionary<string, int>();
         private Random random = new Random();
         private Boolean retainInitialVotes;
-        private int retainInitialVotesThreshold = 0;
+        private int? retainInitialVotesThreshold = 0;
         private int voteCounter = 0;
         private bool voteRunning = false;
         private EVotingMode? votingMode;
@@ -52,7 +52,7 @@ namespace TwitchChatVotingProxy
             votingMode = config.VotingMode;
             overlayMode = config.OverlayMode;
             retainInitialVotes = config.RetainInitalVotes;
-            retainInitialVotesThreshold = config.retainInitialVotesThreshold;
+            retainInitialVotesThreshold = config.RetainInitialVotesThreshold;
 
             // Setup display update tick
             displayUpdateTick.Elapsed += DisplayUpdateTick;
@@ -94,8 +94,7 @@ namespace TwitchChatVotingProxy
             var votesFirstCount = activeVoteOptions.Select(_ => _.Votes).ToList();
             var totalVotesFirstCount = 0;
             votesFirstCount.ForEach(_ => totalVotesFirstCount += _);
-            if (totalVotesFirstCount > retainInitialVotesThreshold) retainInitialVotes == 0;
-            else retainInitialVotes = config.RetainInitalVotes;
+            if (totalVotesFirstCount > retainInitialVotesThreshold) retainInitialVotes = false;
             var votes = activeVoteOptions.Select(_ => retainInitialVotes ? _.Votes + 1 : _.Votes).ToList();
             var totalVotes = 0;
             votes.ForEach(_ => totalVotes += _);
