@@ -94,7 +94,7 @@ namespace TwitchChatVotingProxy
             var votesFirstCount = activeVoteOptions.Select(_ => _.Votes).ToList();
             var totalVotesFirstCount = 0;
             votesFirstCount.ForEach(_ => totalVotesFirstCount += _);
-            if (totalVotesFirstCount > retainInitialVotesThreshold) retainInitialVotes = false;
+            if (totalVotesFirstCount > retainInitialVotesThreshold && retainInitialVotesThreshold > 0) retainInitialVotes = false;
             var votes = activeVoteOptions.Select(_ => retainInitialVotes ? _.Votes + 1 : _.Votes).ToList();
             var totalVotes = 0;
             votes.ForEach(_ => totalVotes += _);
