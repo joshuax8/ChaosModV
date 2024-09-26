@@ -9,6 +9,10 @@
         /// <summary>
         /// request type
         /// </summary>
+        public int retainInitialVotesThreshold { get; set; }
+        /// <summary>
+        /// request type threshold
+        /// </summary>
         public string request { get; set; }
         /// <summary>
         /// total vote count

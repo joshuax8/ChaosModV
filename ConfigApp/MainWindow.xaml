@@ -10,7 +10,7 @@
         Title="ChaosModV Configuration" Height="510" Width="1060" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="400" />
+            <RowDefinition Height="420" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -214,6 +214,7 @@
                             <RowDefinition Height="120" />
                             <RowDefinition Height="180" />
                             <RowDefinition Height="30" />
+							<RowDefinition Height="30" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
@@ -313,6 +314,29 @@
                                 <CheckBox x:Name="twitch_user_chance_system_retain_chance_enable" Width="60" Height="20" Grid.Column="2"
                                           HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
                             </Grid>
+						</Grid>
+						
+						<Grid Grid.Row="4">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+								
+							<Grid Grid.Column="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="2*" />
+									<ColumnDefinition Width="10" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+
+								<Label x:Name="twitch_user_chance_system_retain_chance_threshold_label" Content="Threshold after which initial chance is ignored." Grid.Column="0"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+								<TextBox x:Name="twitch_user_chance_system_retain_chance_threshold" Width="60" Height="20" Grid.Column="2"
+                                     HorizontalAlignment="Left" VerticalAlignment="Center"
+                                     MaxLength="6" PreviewTextInput="OnlyNumbersPreviewTextInput"
+                                     CommandManager.PreviewExecuted="NoCopyPastePreviewExecuted" ContextMenu="{x:Null}"
+                                     Keyboard.PreviewKeyDown="NoSpacePreviewKeyDown" />
+							</Grid>
                         </Grid>
                     </Grid>
                 </TabItem>
